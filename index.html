@@ -1,1 +1,196 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>CSE3000 Research Project 2019-2020 - Poster session</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+        .row.content .col-md-3 {
+            padding: 0;
+        }
+
+        /* Set black background color, white text and some padding */
+        footer {
+            color: white;
+            padding: 15px;
+        }
+
+        .image {
+            opacity: 1;
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: .5s ease;
+            backface-visibility: hidden;
+        }
+
+        .middle {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .col-md-3:hover .image {
+            /*opacity: 0.3;*/
+        }
+
+        .col-md-3:hover .middle {
+            opacity: 1;
+        }
+
+        .text {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            font-size: 16px;
+            padding: 16px 32px;
+            width: 100%;
+            height: 100%;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<!--
+Credits to Jan van Gemert for allowing us to use his original design.
+ https://github.com/CS4240TUD/cs4240tud.github.io
+-->
+
+<div class="jumbotron">
+    <div class="container text-center">
+        <h2>CSE3000 Research Project 2019-2020</h2>
+        <h3>Poster session</h3>
+        <p>8:45 - 12:30, Thursday 25 Juni 2020</p>
+    </div>
+</div>
+
+<div class="container" id="container">
+    <div class="row content">
+        <!-- is loaded via javascript to create fragments -->
+        <p>loading...</p>
+    </div>
+</div>
+
+<footer class="container-fluid">
+    <p>CSE3000 Research Project 2019-2020 | TU Delft</p>
+</footer>
+
+<!-- libary that loads and renders pdf files -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.js"></script>
+<!-- libary that loads and renders pdf previous as images -->
+<script src="js/pdfThumbnails.js"></script>
+
+<script>
+
+    $(document).ready(() => {
+        function createContent(items) {
+            // replace the html of the container with the fragements.
+            $("#container").html(createContentHtmlString(items));
+        }
+
+        function createContentHtmlString(items) {
+            const itemsPerRow = 4;
+            const rows = [];
+
+            // Split the items into rows of 4.
+            for (let i = 0; i < items.length; i += itemsPerRow) {
+                rows.push(createRowFragement(items.slice(i, i + itemsPerRow)));
+            }
+
+            return rows.join("\n");
+        }
+
+        function createRowFragement(rowItems) {
+            // Creates the html for the row items.
+            const rowContent = rowItems
+                .map(createItemFragement)
+                .join("\n");
+            // wraps the html of the items in a row.
+            return `
+            <div class="row content">
+                ${rowContent}
+            </div>
+      `;
+        }
+
+        function createItemFragement(item) {
+            //The item fragement.
+
+            // The data-pdf-thumbnail-file renders first a default image background.png
+            // Then it loads a prev from the pdf poster.
+            // But it is a bit slow to load.
+            return `
+                <div class="col-md-3">
+                    <div style="position: relative; width: 100%; padding-top: 70%; overflow: hidden;">
+                       <img
+                        alt="poster_teaser"
+                        data-pdf-thumbnail-file="${item['posterUrl']}"
+                        style="position: absolute; top: 0; width:100%;"
+                        src="images/background.png"
+                        >
+                    </div>
+                    <div class="middle">
+                        <div class="text">
+                            <h4>${item['groupName']}</h4>
+                            <p>${item['title']}</p>
+                            <h5>
+                                <a href="${item['posterUrl']}" target="_blank">
+                                    <span class="label label-success">Poster</span>
+                                </a>
+                                <a href="${item['paperUrl']}" target="_blank">
+                                    <span class="label label-primary">Paper</span>
+                                </a>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+                `
+        }
+
+        // the poster names.
+        const posters = [
+            "Effects of Clan-based Agents on Iterated Prisoner’s Dilemma Strategies in Evolving Spatial Environments",
+            "Exploration In Deep Reinforcement Learning for Traffic Light Control",
+            "Gender Bias Between Languages",
+            "Gender Bias in Wikipedia",
+            "Identifying who said a line",
+            "Local search for testing RESTful APIs",
+            "Object Detection of Scattered LEGO Pieces",
+            "Preserving Inter-gene Relations during Test Case Generation using Intelligent Evolutionary Operators",
+            "Profiling DeepNetworksin Resource-constrained Systems",
+            "Self-Quarantining during COVID-19 Is self-quarantining behavior in our own best interest",
+            "Solving multi-agent path-finding problems with wapoints using A star"
+        ];
+        // create the poster objects.
+        const items = posters.map((poster, idx) => {
+            return {
+                groupName: `RP Group ${idx + 1}`,
+                title: poster,
+                posterUrl: `posters/${poster}.pdf`,
+                paperUrl: "#TODO",
+            };
+        })
+        // render the fragements.
+        createContent(items);
+        // render the pdf previous
+        createPDFThumbnails();
+    });
+
+
+</script>
+
+</body>
+</html>
