@@ -17,7 +17,7 @@
     "lint:eslintFix": "eslint 'src/**/*.{ts,tsx}' --fix",
     "lint:eslint": "eslint 'src/**/*.{ts,tsx}'",
     "lint:typescript": "tsc",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 0",
+    "test": "gatsby build --prefix-paths",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public -r https://$GH_TOKEN@github.com/CSE3000-research-project/cse3000-research-project.github.io.git"
   },
   "pre-commit": [
