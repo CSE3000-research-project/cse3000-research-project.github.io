@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://cse3000-research-project.github.io//sitemap.xml
+Host: https://cse3000-research-project.github.io
