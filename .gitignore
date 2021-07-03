@@ -59,7 +59,7 @@ typings/
 # gatsby files
 .cache/
 public
-content/**/poster.jpg
+
 
 # Mac files
 .DS_Store
@@ -75,4 +75,4 @@ yarn-error.log
 # generated files
 graphql-types.ts
 
-content/data/CV.pdf
+
