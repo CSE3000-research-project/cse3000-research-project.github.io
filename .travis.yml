@@ -8,4 +8,4 @@ deploy:
   script: npm install && npm run deploy
   skip_cleanup: true
   on:
-    branch: main
+    branch: master
