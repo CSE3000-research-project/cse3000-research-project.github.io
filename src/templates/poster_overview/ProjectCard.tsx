@@ -16,7 +16,13 @@ const ProjectCard: React.FC<Props> = ({ projectGroup }: Props) => {
   return (
     <Card>
       <CardContent>
-        <Typography variant={"h5"} component={"h2"} paragraph>
+        <Typography
+          variant={"h5"}
+          component={"h2"}
+          paragraph={
+            !projectGroup?.supervisors || projectGroup?.supervisors.length === 0
+          }
+        >
           {projectGroup.projectTitle}
         </Typography>
         {projectGroup?.supervisors && projectGroup?.supervisors.length > 0 && (
