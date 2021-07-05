@@ -91,6 +91,17 @@ const useStyles = makeStyles((theme: Theme) => ({
   listItem: {
     paddingLeft: theme.spacing(4),
   },
+  footer: {
+    width: "100%",
+    textAlign: "center",
+    opacity: 0.05,
+    userSelect: "none",
+  },
+  footerLink: {
+    color: "inherit",
+    textDecoration: "none",
+    cursor: "default",
+  },
 }))
 
 interface Props {
@@ -199,6 +210,15 @@ const NavAndSideBarLayout: React.FC<Props> = ({
       >
         <div className={classes.drawerHeader} />
         {children}
+        <p className={classes.footer}>
+          Created by{" "}
+          <a
+            className={classes.footerLink}
+            href={"https://j0rd1smit.github.io/"}
+          >
+            Jordi Smit
+          </a>
+        </p>
       </main>
     </div>
   )

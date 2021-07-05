@@ -29,6 +29,7 @@
     "@material-ui/icons": "^4.11.2",
     "@material-ui/styles": "^4.11.4",
     "@material-ui/system": "^4.11.3",
+    "argparse": "^1.0.10",
     "deepmerge": "^4.2.2",
     "gatsby": "^3.6.2",
     "gatsby-image": "^3.6.0",
