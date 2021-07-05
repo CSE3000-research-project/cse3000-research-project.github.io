@@ -33,7 +33,9 @@ content
 ```
 
 #### Create a new project
+
 To help you create the folder structure for a new project, we created the following CLI command:
+
 ```bash
   node create_a_new_group.js \
   --title "Example title" \
@@ -43,16 +45,18 @@ To help you create the folder structure for a new project, we created the follow
   --supervisors "Joe Doe" "Jane Doe"
 ```
 
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `title` | `string` | **Required**. The title of the project. |
-| `year` | `int` | The year in which the project was run. If not specified, we assume the current year.|
-| `quarter` | `int` | **Required**. The quarter in which the project was run. Either 1, 2, 3 or 4. |
-| `groupNumber` | `string` | **Required**. Your group number on BrightSpace. |
-| `supervisors` | `List[string]` |A list of supervisor names.|
+| Parameter     | Type           | Description                                                                          |
+| :------------ | :------------- | :----------------------------------------------------------------------------------- |
+| `title`       | `string`       | **Required**. The title of the project.                                              |
+| `year`        | `int`          | The year in which the project was run. If not specified, we assume the current year. |
+| `quarter`     | `int`          | **Required**. The quarter in which the project was run. Either 1, 2, 3 or 4.         |
+| `groupNumber` | `string`       | **Required**. Your group number on BrightSpace.                                      |
+| `supervisors` | `List[string]` | A list of supervisor names.                                                          |
 
 #### Create a new student
+
 To help you create the folder structure for a new student we created the following CLI command:
+
 ```bash
   node create_a_new_student.js \
   --title "Example title" \
@@ -65,17 +69,19 @@ To help you create the folder structure for a new student we created the followi
   --posterPdf "abs/path/to/poster.pdf" \
   --posterImg "abs/path/to/poster.jpg" \
 ```
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `title` | `string` | **Required**. The title of the project. |
-| `year` | `int` | The year in which the project was run. If not specified, we assume the current year.|
-| `quarter` | `int` | **Required**. The quarter in which the project was run. Either 1, 2, 3 or 4. |
-| `groupNumber` | `string` | **Required**. Your group number on BrightSpace. |
-| `firstName` | `string` |**Required**.  The first name of the student. |
-| `lastName` | `string` |**Required**.  The last name of the student |
-| `paperUrl` | `string` |A link to the TU Delft repository version of your paper |
-| `posterPdf` | `string` | An absolute path to the location of the pdf version of your poster. If the flag is left empty, you have to add the pdf manually. Important the website cannot be built if this image is not present in your folder. |
-| `posterImg` | `string` | An absolute path to the location of the JPG version of your poster. This image will be used as a preview of your poster. If the flag is left empty, you have to add the image manually. Important the website cannot be built if this image is not present in your folder.|
+
+| Parameter     | Type     | Description                                                                                                                                                                                                                                                                |
+| :------------ | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `title`       | `string` | **Required**. The title of the project.                                                                                                                                                                                                                                    |
+| `year`        | `int`    | The year in which the project was run. If not specified, we assume the current year.                                                                                                                                                                                       |
+| `quarter`     | `int`    | **Required**. The quarter in which the project was run. Either 1, 2, 3 or 4.                                                                                                                                                                                               |
+| `groupNumber` | `string` | **Required**. Your group number on BrightSpace.                                                                                                                                                                                                                            |
+| `firstName`   | `string` | **Required**. The first name of the student.                                                                                                                                                                                                                               |
+| `lastName`    | `string` | **Required**. The last name of the student                                                                                                                                                                                                                                 |
+| `paperUrl`    | `string` | A link to the TU Delft repository version of your paper                                                                                                                                                                                                                    |
+| `posterPdf`   | `string` | An absolute path to the location of the pdf version of your poster. If the flag is left empty, you have to add the pdf manually. Important the website cannot be built if this image is not present in your folder.                                                        |
+| `posterImg`   | `string` | An absolute path to the location of the JPG version of your poster. This image will be used as a preview of your poster. If the flag is left empty, you have to add the image manually. Important the website cannot be built if this image is not present in your folder. |
+
 **Note**: We assume here that you make this student after his project structure has already been created.
 
 ## Deployment
