@@ -101,6 +101,15 @@ const load_group = (
       ),
     )
 
+  const requiredKeys = ["projectTitle", "quarter", "supervisors", "year"]
+  requiredKeys.forEach(requiredKey => {
+    if (!(requiredKey in group_info)) {
+      throw new Error(
+        `The required attribute "${requiredKey}" is missing. Please add a this attribute in the file:"\n${pathToGroupInfo}\n"`,
+      )
+    }
+  })
+
   return group_info
 }
 
@@ -122,6 +131,15 @@ const load_student_data = (
       `The poster has no prev image. Please add a prev image at:"\n${image_path}\n"`,
     )
   }
+  const requiredKeys = ["firstName", "lastName", "paperUrl", "thesisTitle"]
+  requiredKeys.forEach(requiredKey => {
+    if (!(requiredKey in student_data)) {
+      throw new Error(
+        `The required attribute "${requiredKey}" is missing. Please add a this attribute in the file:"\n${pathToStudentFolder}\n"`,
+      )
+    }
+  })
+
   student_data["prevImage"] =
     allPosterPrevImagesByRelativeDirectory[path.dirname(pathToStudentFolder)]
   student_data["pdfUrl"] =
