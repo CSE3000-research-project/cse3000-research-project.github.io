@@ -8,6 +8,57 @@ The poster [website](https://CSE3000-research-project.github.io) for the TU Delf
 
 Contributions are always welcome! So feel free to make a Pull request.
 
+### Forking the repo
+
+Before you can make a PR you must fork the repo. You can do this using the following steps:
+
+1. Fork the project repository: click on the ‘Fork’ button near the top of the page. This creates a copy of the code under your account on the GitHub user account. For more details on how to fork a repository see [this guide](https://docs.github.com/en/get-started/quickstart/fork-a-repo).
+2. Clone your fork of the repo from your GitHub account to your local disk:
+
+```bash
+git clone git@github.com:YourLogin/cse3000-research-project.github.io.git
+cd cse3000-research-project.github.io
+```
+
+3. Install the dependencies:
+
+```bash
+npm install
+```
+
+4. Add the upstream remote. This saves a reference to the main repository, which you can use to keep your repository synchronized with the latest changes:
+
+```bash
+git remote add upstream https://github.com/CSE3000-research-project/cse3000-research-project.github.io.git
+```
+
+### Making a PR
+
+You can make a PR using the following steps:
+
+1. Synchronize your main branch with the upstream main branch:
+
+```bash
+git checkout master
+git pull upstream master
+```
+
+2. Create a feature branch to hold your development changes:
+
+```bash
+git checkout -b my_feature
+```
+
+3. Develop the feature on your feature branch on your computer, using Git to do the version control. When you’re done editing, add changed files using git add and then git commit:
+
+```bash
+git add modified_files
+git commit
+git push -u origin my_feature
+```
+
+4. Make a PR on GitHub. See [these instructions](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork) if you don't know how to do this.
+
 ### Poster storage structure
 
 All the groups are grouped in based on the year and quarter of the research project edition.
