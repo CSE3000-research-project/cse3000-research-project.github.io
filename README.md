@@ -8,7 +8,7 @@ The poster [website](https://CSE3000-research-project.github.io) for the TU Delf
 
 ## Workflow for students
 
-We ask each project group to choose a representative who will update the page with the posters, papers, and (optionally) links to the code hosted on GitHub. Here we explain the steps required to make a complete pull request to this repository.
+We ask each project group to choose a representative who will update the page with the final posters and papers of the whole group. Here we explain the steps required to make a complete pull request to this repository.
 
 ### 1. Forking our repository
 <details>
@@ -16,7 +16,7 @@ We ask each project group to choose a representative who will update the page wi
 Before you can make a PR you must fork the repo.
 </summary>
 
-1. Click on the ‘Fork’ button near the top of the page. This creates a copy of the code under your account on the GitHub user account. For more details on how to fork a repository see [this guide](https://docs.github.com/en/get-started/quickstart/fork-a-repo).
+1. Click on the "Fork" button near the top of the page. This creates a copy of the code under your account on the GitHub user account. For more details on how to fork a repository see [this guide](https://docs.github.com/en/get-started/quickstart/fork-a-repo).
 
 2. Clone your fork of the repo from your GitHub account to your local disk:
 
@@ -31,7 +31,7 @@ cd cse3000-research-project.github.io
 ### 2. Setting up the project
 <details>
 <summary>
-Add an upstream repository and make a feature branch.
+Add an upstream remote and make a feature branch.
 </summary>
 
 1. Add a new upstream remote by executing the following command.
@@ -63,9 +63,9 @@ git checkout -b my_feature
 This project works with Node v14.19 (LTS: Fermium).
 </summary>
 
-You can download Node from [this website](https://nodejs.org/en/download/). 
+You can download Node.js from [the Node website](https://nodejs.org/en/download/). 
 
-We strongly suggest using a version manager to easily change between the Node versions. As one option, you can consider `nvm` - it can also be installed on Windows [if you are using WLS](https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-wsl).
+Consider using a version manager to easily change between the Node versions. As one option, you can install `nvm` which also works on Windows [if you are using WLS](https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-wsl).
 
 After setting up the correct version of Node, install the dependencies:
 
@@ -235,7 +235,8 @@ git commit -m "Add Group N files."
 git push -u origin my_feature
 ```
 
-**Note:** Please ensure that your commit message follows the format `Add Group N files` or `Update Group N files` where `N` is the number of your group on Brightspace.
+**Note:** Please make sure that your commit message follows the format `Add Group N files` or `Update Group N files` where `N` is the number of your group on Brightspace.  
+**Note:** If you run across an issue with the node_modules hooks (`command not found`), you can commit your files with the flag `--no-verify`.
 
 3. Make a PR on GitHub to the `dev` branch. See [these instructions](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork) if you don't know how to do this.
 
