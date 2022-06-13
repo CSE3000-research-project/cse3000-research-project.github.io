@@ -101,12 +101,10 @@ const createCLIArgs = () => {
     type: "int",
     required: true,
   })
-
   parser.addArgument("--posterPdf", {
     help: "An absolute path to the location of your poster.",
     type: "string",
   })
-
   parser.addArgument("--posterImg", {
     help: "An absolute path to the location of your poster.",
     type: "string",

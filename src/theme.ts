@@ -1,6 +1,6 @@
 import deepMerge from "deepmerge"
 import {
-  createMuiTheme,
+  createTheme,
   responsiveFontSizes,
   ThemeOptions,
   Theme,
@@ -11,7 +11,7 @@ const makeTheme = (variant: ThemeOptions): Theme => {
     palette: {},
   }
 
-  const theme = createMuiTheme(deepMerge(common, variant))
+  const theme = createTheme(deepMerge(common, variant))
   return responsiveFontSizes(theme)
 }
 

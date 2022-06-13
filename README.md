@@ -4,86 +4,115 @@
 
 The poster [website](https://CSE3000-research-project.github.io) for the TU Delft course CSE3000 Research Project.
 
-## Contributing
+<br>
 
-Contributions are always welcome! So feel free to make a Pull request.
+## Workflow for students
 
-### Forking the repo
+We ask each project group to choose a representative who will update the page with the posters, papers, and (optionally) links to the code hosted on GitHub. Here we explain the steps required to make a complete pull request to this repository.
 
-Before you can make a PR you must fork the repo. You can do this using the following steps:
+### 1. Forking our repository
+<details>
+<summary>
+Before you can make a PR you must fork the repo.
+</summary>
 
-1. Fork the project repository: click on the ‘Fork’ button near the top of the page. This creates a copy of the code under your account on the GitHub user account. For more details on how to fork a repository see [this guide](https://docs.github.com/en/get-started/quickstart/fork-a-repo).
+1. Click on the ‘Fork’ button near the top of the page. This creates a copy of the code under your account on the GitHub user account. For more details on how to fork a repository see [this guide](https://docs.github.com/en/get-started/quickstart/fork-a-repo).
+
 2. Clone your fork of the repo from your GitHub account to your local disk:
 
 ```bash
 git clone git@github.com:YourLogin/cse3000-research-project.github.io.git
 cd cse3000-research-project.github.io
 ```
+</details>
 
-3. Install the dependencies:
+<br>
 
-```bash
-npm install
-```
+### 2. Setting up the project
+<details>
+<summary>
+Add an upstream repository and make a feature branch.
+</summary>
 
-4. Add the upstream remote. This saves a reference to the main repository, which you can use to keep your repository synchronized with the latest changes:
+1. Add a new upstream remote by executing the following command.
 
 ```bash
 git remote add upstream https://github.com/CSE3000-research-project/cse3000-research-project.github.io.git
 ```
 
-### Making a PR
-
-You can make a PR using the following steps:
-
-1. Synchronize your main branch with the upstream main branch:
+1. Synchronize your branch with the upstream dev branch:
 
 ```bash
-git checkout master
-git pull upstream master
+git checkout dev
+git pull upstream dev
 ```
 
-2. Create a feature branch to hold your development changes:
+3. Create a feature branch to hold your development changes:
 
 ```bash
 git checkout -b my_feature
 ```
 
-3. Develop the feature on your feature branch on your computer, using Git to do the version control. When you’re done editing, add changed files using git add and then git commit:
+</details>
+
+<br>
+
+### 3. Installing the dependencies
+<details>
+<summary>
+This project works with Node v14.19 (LTS: Fermium).
+</summary>
+
+You can download Node from the [project website](https://nodejs.org/en/download/). 
+
+We strongly suggest using a version manager to easily change between the Node versions. As one option, you can consider `nvm` - it can also be installed on Windows [if you are using WLS](https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-wsl)
+
+After setting up the correct version of Node, install the dependencies:
 
 ```bash
-git add modified_files
-git commit
-git push -u origin my_feature
+npm install
 ```
 
-4. Make a PR on GitHub. See [these instructions](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork) if you don't know how to do this.
+</details>
 
-### Poster storage structure
+<br>
 
-All the groups are grouped in based on the year and quarter of the research project edition.
-Within this group, each project has its own folder with the name `Group i`.
-Each group folder must have a `group_info.yaml` file containing all the group-related information, e.g., project title, supervisor names, etc.
-Each group folder also has a subfolder called students.
-Within this student folder, each student has their own folder, which contains three files.
-The `student_info.yaml` file contains all the student-related information, e.g., name, thesis title, link to the paper, etc.
-This folder also contains a preview named `poster.jpg` and the poster itself named `poster.pdf`.
+### 4. Adding the project group and students
+
+#### Poster storage structure
+
+All project groups are stored based on the year and quarter of their CSE3000 Research Project edition. Within this directory, each project group has its own folder with the name `Group N`.
+Each group folder must have a `group_info.yaml` file that contains all the group-related information: *group number*, *project title*, and *names of the supervisors*.  
+
+Each group directory has a subdirectory called `students` where each student must have their own folder with three files:
+
+* `student_info.yaml` file with student-related information: *first name*, *last name*, *thesis title*, *link to the paper*, and optionally *link to the code*.
+* `poster.jpg` which is a preview image of the poster
+* `poster.pdf` academic poster itself.
+
+<details>
+<summary>
+See here for the example structure of the directory.
+</summary>
 
 ```
 content
-  posters
-    2021
-      Q4
-        Group 1
-          group_info.yaml
-          students
-            John Doe
-              poster.jpg
-              poster.pdf
-              student_info.yaml
+└───posters
+    └───2021
+        └───Q4
+        │   └───Group 1
+        │   │   │   group_info.yaml
+        │   │   └───students
+        │   │       └───John Doe
+        │   │       │       poster.jpg
+        │   │       │       poster.pdf
+        │   │       │       student_info.yaml
 ```
+</details>
 
-#### Create a new project
+<br>
+
+#### Creating a new project
 
 To help you create the folder structure for a new project, we created the following CLI command:
 
@@ -96,13 +125,21 @@ To help you create the folder structure for a new project, we created the follow
   --supervisors "Joe Doe" "Jane Doe"
 ```
 
-| Parameter     | Type           | Description                                                                          |
-| :------------ | :------------- | :----------------------------------------------------------------------------------- |
-| `title`       | `string`       | **Required**. The title of the project.                                              |
-| `year`        | `int`          | The year in which the project was run. If not specified, we assume the current year. |
-| `quarter`     | `int`          | **Required**. The quarter in which the project was run. Either 1, 2, 3 or 4.         |
-| `groupNumber` | `string`       | **Required**. Your group number on BrightSpace.                                      |
-| `supervisors` | `List[string]` | A list of supervisor names.                                                          |
+<details>
+<summary>
+See here for the description of all arguments of create_a_new_group.js.
+</summary>
+
+| Parameter     | Type           | Description |
+| :------------ | :------------- | :-----------|
+| `title`       | `string`       | **Required**. The title of the project. |
+| `year`        | `int`          | Year when the project was conducted. By default the current year. |
+| `quarter`     | `int`          | **Required**. Quarter when the project was conducted. |
+| `groupNumber` | `string`       | **Required**. Your group number on BrightSpace. |
+| `supervisors` | `List[string]` | A list of supervisor names. |
+</details>
+
+<br>
 
 #### Create a new student
 
@@ -116,24 +153,92 @@ To help you create the folder structure for a new student we created the followi
   --groupNumber 42 \
   --firstName "Joe" \
   --lastName "Doe" \
-  --paperUrl "https://repository.tudelft.nl/islandora/object/uuid:d3deaccc-db8b-4fe0-8328-faaf4fa6b598?collection=education" \
-  --posterPdf "abs/path/to/poster.pdf" \
-  --posterImg "abs/path/to/poster.jpg" \
+  --paperUrl "https://repository.tudelft.nl/islandora/search/?collection=education" \
+  --posterPdf "absolute/path/to/poster.pdf" \
+  --posterImg "absolute/path/to/poster.jpg" \
+  --repositoryUrl "https://github.com/explore"
 ```
 
-| Parameter     | Type     | Description                                                                                                                                                                                                                                                                |
-| :------------ | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `title`       | `string` | **Required**. The title of the project.                                                                                                                                                                                                                                    |
-| `year`        | `int`    | The year in which the project was run. If not specified, we assume the current year.                                                                                                                                                                                       |
-| `quarter`     | `int`    | **Required**. The quarter in which the project was run. Either 1, 2, 3 or 4.                                                                                                                                                                                               |
-| `groupNumber` | `string` | **Required**. Your group number on BrightSpace.                                                                                                                                                                                                                            |
-| `firstName`   | `string` | **Required**. The first name of the student.                                                                                                                                                                                                                               |
-| `lastName`    | `string` | **Required**. The last name of the student                                                                                                                                                                                                                                 |
-| `paperUrl`    | `string` | A link to the TU Delft repository version of your paper                                                                                                                                                                                                                    |
-| `posterPdf`   | `string` | An absolute path to the location of the pdf version of your poster. If the flag is left empty, you have to add the pdf manually. Important the website cannot be built if this image is not present in your folder.                                                        |
-| `posterImg`   | `string` | An absolute path to the location of the JPG version of your poster. This image will be used as a preview of your poster. If the flag is left empty, you have to add the image manually. Important the website cannot be built if this image is not present in your folder. |
+**Note:** You should run this command only after a project structure was generated.
 
-**Note**: We assume here that you make this student after his project structure has already been created.
+<details>
+<summary>
+See here for the description of all arguments of create_a_new_student.js.
+</summary>
+
+| Parameter     | Type     | Description |
+| :------------ | :------- | :-----------|
+| `title`       | `string` | **Required**. The title of the project. |
+| `year`        | `int`    | Year when the project was conducted. By default the current year. |
+| `quarter`     | `int`    | **Required**. Quarter when the project was conducted. |
+| `groupNumber` | `string` | **Required**. Your group number on BrightSpace. |
+| `firstName`   | `string` | **Required**. The first name of the student. |
+| `lastName`    | `string` | **Required**. The last name of the student |
+| `paperUrl`    | `string` | A link to the TU Delft repository version of your paper |
+| `posterPdf`   | `string` | An *absolute* path to the location of the pdf version of your poster. If the flag is left empty, you have to add the pdf manually. **Important:** the website cannot be built if this image is not present in your folder. |
+| `posterImg`   | `string` | An *absolute* path to the location of the JPG version of your poster. This image will be used as a preview of your poster. If the flag is left empty, you have to add the image manually. **Important:** the website cannot be built if this image is not present in your folder. |
+| `repositoryUrl` | `string` | If applicable, a link to the GitHub repository with your code |
+</details>
+
+<br>
+
+### 5. Running the website locally
+<details>
+<summary>
+Before you make a pull request, please check if the website works on your local machine.
+</summary>
+
+#### Develop
+
+To start a development server run the following command:
+
+```bash
+  npm start
+```
+
+and navigate to `localhost:8000`.
+
+#### Build
+
+You can also build the static website. First run:
+
+```bash
+  npm run build
+```
+
+and then:
+
+```bash
+  npm run serve
+```
+
+and finally navigate to `localhost:9000`.
+</details>
+
+<br>
+
+### 6. Making a PR
+
+You can make a PR using the following steps:
+
+1. Synchronize your branch with the upstream dev branch:
+
+```bash
+git checkout dev
+git pull upstream dev
+```
+
+2. Add changed files using `git add` and then `git commit`:
+
+```bash
+git add modified_files
+git commit
+git push -u origin my_feature
+```
+
+3. Make a PR on GitHub to the `dev` branch. See [these instructions](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork) if you don't know how to do this.
+
+<br>
 
 ## Deployment
 
@@ -141,32 +246,8 @@ The website deployed on [CSE3000-research-project.github.io](https://CSE3000-res
 This website gets updated automatically every time the main branch is updated using the Travis-ci build script.
 For more information, see the `.travis.yml` file or this [link](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/how-gatsby-works-with-github-pages/).
 
-## Run Locally
+<br>
 
-If you want to try out the website locally, you can do this as follows.
+## Contributing
 
-### Install
-
-The project is gatsby based website and thus can be installed using NPM as follows:
-
-```bash
-  https://github.com/CSE3000-research-project/cse3000-research-project.github.io.git
-  cd cse3000-research-project.github.io
-  npm install
-```
-
-### Develop
-
-To start a development server run the following command:
-
-```bash
-  npm develop
-```
-
-### Build
-
-To build the static website run the following command:
-
-```bash
-  npm build
-```
+Contributions are always welcome! Feel free to make a pull request.

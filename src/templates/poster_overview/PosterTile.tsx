@@ -44,8 +44,11 @@ const useStyles = makeStyles((theme: Theme) => ({
     boxSizing: "border-box",
   },
   buttonContainer: {
-    margin: 5,
+    margin: 2,
   },
+  tileButton: {
+    top: "-25%",
+  }
 }))
 
 interface Props {
@@ -93,9 +96,10 @@ const PosterTile: React.FC<Props> = ({ studentInfo }: Props) => {
                   <Button
                     variant="contained"
                     size="small"
-                    color="primary"
+                    color="secondary"
                     target={"_blank"}
                     href={studentInfo.pdfUrl}
+                    className={classes.tileButton}
                   >
                     Poster
                   </Button>
@@ -106,9 +110,10 @@ const PosterTile: React.FC<Props> = ({ studentInfo }: Props) => {
                   <Button
                     variant="contained"
                     size="small"
-                    color="secondary"
+                    color="primary"
                     target={"_blank"}
                     href={studentInfo.paperUrl}
+                    className={classes.tileButton}
                   >
                     Paper
                   </Button>
