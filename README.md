@@ -63,9 +63,9 @@ git checkout -b my_feature
 This project works with Node v14.19 (LTS: Fermium).
 </summary>
 
-You can download Node from the [project website](https://nodejs.org/en/download/). 
+You can download Node from [this website](https://nodejs.org/en/download/). 
 
-We strongly suggest using a version manager to easily change between the Node versions. As one option, you can consider `nvm` - it can also be installed on Windows [if you are using WLS](https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-wsl)
+We strongly suggest using a version manager to easily change between the Node versions. As one option, you can consider `nvm` - it can also be installed on Windows [if you are using WLS](https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-wsl).
 
 After setting up the correct version of Node, install the dependencies:
 
@@ -177,7 +177,6 @@ See here for the description of all arguments of create_a_new_student.js.
 | `paperUrl`    | `string` | A link to the TU Delft repository version of your paper |
 | `posterPdf`   | `string` | An *absolute* path to the location of the pdf version of your poster. If the flag is left empty, you have to add the pdf manually. **Important:** the website cannot be built if this image is not present in your folder. |
 | `posterImg`   | `string` | An *absolute* path to the location of the JPG version of your poster. This image will be used as a preview of your poster. If the flag is left empty, you have to add the image manually. **Important:** the website cannot be built if this image is not present in your folder. |
-| `repositoryUrl` | `string` | If applicable, a link to the GitHub repository with your code |
 </details>
 
 <br>
@@ -232,9 +231,11 @@ git pull upstream dev
 
 ```bash
 git add modified_files
-git commit
+git commit -m "Add Group N files."
 git push -u origin my_feature
 ```
+
+**Note:** Please ensure that your commit message follows the format `Add Group N files` or `Update Group N files` where `N` is the number of your group on Brightspace.
 
 3. Make a PR on GitHub to the `dev` branch. See [these instructions](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork) if you don't know how to do this.
 
