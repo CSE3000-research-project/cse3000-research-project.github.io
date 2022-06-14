@@ -119,6 +119,20 @@ const PosterTile: React.FC<Props> = ({ studentInfo }: Props) => {
                   </Button>
                 </Grid>
               )}
+              {studentInfo?.repositoryUrl && (
+                <Grid item className={classes.buttonContainer}>
+                  <Button
+                    variant="contained"
+                    size="small"
+                    color="secondary"
+                    target={"_blank"}
+                    href={studentInfo.repositoryUrl}
+                    className={classes.tileButton}
+                  >
+                    Code
+                  </Button>
+                </Grid>
+              )}
             </Grid>
           </Grid>
         </Grid>

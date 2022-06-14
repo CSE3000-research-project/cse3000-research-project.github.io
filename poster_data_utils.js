@@ -145,12 +145,12 @@ const load_student_data = (
       `The poster at ${pathToStudentFolder} links to an invalid domain:"\n${student_data["paperUrl"]}\n"`,
     )
   }
-  // const repo_domain = /(https:\/\/github\.com(\/[A-Za-z0-9\-]*)(\/[A-Za-z0-9\-]*))/g
-  // if ("repositoryUrl" in student_data && !student_data["repositoryUrl"].match(repo_domain)) {
-  //   throw new Error(
-  //     `The repository at ${pathToStudentFolder} links to an invalid domain:"\n${student_data["repositoryUrl"]}\n"`,
-  //   )
-  // }
+  const repo_domain = /(^$|(https:\/\/github\.com(\/[A-Za-z0-9\-]*)(\/[A-Za-z0-9\.\-_]*)))/g
+  if ("repositoryUrl" in student_data && !student_data["repositoryUrl"].match(repo_domain)) {
+    throw new Error(
+      `The repository at ${pathToStudentFolder} links to an invalid domain:"\n${student_data["repositoryUrl"]}\n"`,
+    )
+  }
 
   student_data["prevImage"] =
     allPosterPrevImagesByRelativeDirectory[path.dirname(pathToStudentFolder)]

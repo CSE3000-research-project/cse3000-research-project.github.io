@@ -8,7 +8,7 @@ The poster [website](https://CSE3000-research-project.github.io) for the TU Delf
 
 ## Workflow for students
 
-We ask each project group to choose a representative who will update the page with the final posters and papers of the whole group. Here we explain the steps required to make a complete pull request to this repository.
+We ask each project group to choose a representative who will update the page with the final posters, papers, and (optionally) links to the GitHub repositories of the whole group. Here we explain the steps required to make a complete pull request to this repository.
 
 ### 1. Forking our repository
 <details>
@@ -50,7 +50,7 @@ git pull upstream dev
 3. Create a feature branch to hold your development changes:
 
 ```bash
-git checkout -b my_feature
+git checkout -b group_N
 ```
 
 </details>
@@ -166,17 +166,18 @@ To help you create the folder structure for a new student we created the followi
 See here for the description of all arguments of create_a_new_student.js.
 </summary>
 
-| Parameter     | Type     | Description |
-| :------------ | :------- | :-----------|
-| `title`       | `string` | **Required**. The title of the project. |
-| `year`        | `int`    | Year when the project was conducted. By default the current year. |
-| `quarter`     | `int`    | **Required**. Quarter when the project was conducted. |
-| `groupNumber` | `string` | **Required**. Your group number on BrightSpace. |
-| `firstName`   | `string` | **Required**. The first name of the student. |
-| `lastName`    | `string` | **Required**. The last name of the student |
-| `paperUrl`    | `string` | A link to the TU Delft repository version of your paper |
-| `posterPdf`   | `string` | An *absolute* path to the location of the pdf version of your poster. If the flag is left empty, you have to add the pdf manually. **Important:** the website cannot be built if this image is not present in your folder. |
-| `posterImg`   | `string` | An *absolute* path to the location of the JPG version of your poster. This image will be used as a preview of your poster. If the flag is left empty, you have to add the image manually. **Important:** the website cannot be built if this image is not present in your folder. |
+| Parameter       | Type     | Description |
+| :---------------| :------- | :-----------|
+| `title`         | `string` | **Required**. The title of the project. |
+| `year`          | `int`    | Year when the project was conducted. By default the current year. |
+| `quarter`       | `int`    | **Required**. Quarter when the project was conducted. |
+| `groupNumber`   | `string` | **Required**. Your group number on BrightSpace. |
+| `firstName`     | `string` | **Required**. The first name of the student. |
+| `lastName`      | `string` | **Required**. The last name of the student |
+| `paperUrl`      | `string` | A link to the TU Delft repository version of your paper |
+| `posterPdf`     | `string` | An *absolute* path to the location of the pdf version of your poster. If the flag is left empty, you have to add the pdf manually. **Important:** the website cannot be built if this image is not present in your folder. |
+| `posterImg`     | `string` | An *absolute* path to the location of the JPG version of your poster. This image will be used as a preview of your poster. If the flag is left empty, you have to add the image manually. **Important:** the website cannot be built if this image is not present in your folder. |
+| `repositoryUrl` | `string` | A link to the GitHub repository with project code |
 </details>
 
 <br>
