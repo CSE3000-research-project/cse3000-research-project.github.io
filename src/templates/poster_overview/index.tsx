@@ -2,7 +2,6 @@ import React from "react"
 import { makeStyles } from "@material-ui/styles"
 import { Theme } from "@material-ui/core/styles"
 import NavAndSideBarLayout from "../../layout/NavAndSideBarLayout"
-
 import { Grid } from "@material-ui/core"
 import { SitePageContext } from "../../../graphql-types"
 import ProjectCard from "./ProjectCard"

@@ -57,7 +57,6 @@ const createCLIArgs = () => {
     nargs: "+",
     defaultValue: [],
   })
-
   parser.addArgument("--groupNumber", {
     help: "Your group number on BrightSpace.",
     type: "int",

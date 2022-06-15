@@ -41,8 +41,11 @@ const useStyles = makeStyles((theme: Theme) => ({
     boxSizing: "border-box",
   },
   buttonContainer: {
-    margin: 5,
+    margin: 2,
   },
+  tileButton: {
+    top: "-25%",
+  }
 }))
 
 interface Props {
@@ -87,6 +90,7 @@ const PosterTile: React.FC<Props> = ({ poster }: Props) => {
                   color="primary"
                   target={"_blank"}
                   href={poster.pdfUrl}
+                  className={classes.tileButton}
                 >
                   Poster
                 </Button>
@@ -99,8 +103,23 @@ const PosterTile: React.FC<Props> = ({ poster }: Props) => {
                     color="secondary"
                     target={"_blank"}
                     href={poster.paperUrl}
+                    className={classes.tileButton}
                   >
                     Paper
+                  </Button>
+                )}
+              </Grid>
+              <Grid item className={classes.buttonContainer}>
+                {poster.repositoryUrl !== undefined && poster.repositoryUrl.length > 0 &&(
+                  <Button
+                    variant="contained"
+                    size="small"
+                    color="secondary"
+                    target={"_blank"}
+                    href={poster.repositoryUrl}
+                    className={classes.tileButton}
+                  >
+                    Code
                   </Button>
                 )}
               </Grid>

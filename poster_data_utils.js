@@ -128,7 +128,7 @@ const load_student_data = (
   const image_path = path.join(path.dirname(pathToStudentFolder), "poster.jpg")
   if (!fs.existsSync(image_path)) {
     throw new Error(
-      `The poster has no prev image. Please add a prev image at:"\n${image_path}\n"`,
+      `The poster has no preview image. Please add a preview image at:"\n${image_path}\n"`,
     )
   }
   const requiredKeys = ["firstName", "lastName", "paperUrl", "thesisTitle"]
@@ -139,6 +139,18 @@ const load_student_data = (
       )
     }
   })
+  const paper_domain = /(https?:\/\/(.+?\.)?tudelft\.nl\/([A-Za-z0-9\/\-:%\?=]*))/g
+  if (!student_data["paperUrl"].match(paper_domain)) {
+    throw new Error(
+      `The poster at ${pathToStudentFolder} links to an invalid domain:"\n${student_data["paperUrl"]}\n"`,
+    )
+  }
+  const repo_domain = /(^$|(https:\/\/github\.com(\/[A-Za-z0-9\-]*)(\/[A-Za-z0-9\.\-_]*)))/g
+  if ("repositoryUrl" in student_data && !student_data["repositoryUrl"].match(repo_domain)) {
+    throw new Error(
+      `The repository at ${pathToStudentFolder} links to an invalid domain:"\n${student_data["repositoryUrl"]}\n"`,
+    )
+  }
 
   student_data["prevImage"] =
     allPosterPrevImagesByRelativeDirectory[path.dirname(pathToStudentFolder)]
