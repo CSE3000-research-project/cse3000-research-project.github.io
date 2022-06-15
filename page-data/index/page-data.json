@@ -1,1 +1,5 @@
-{"componentChunkName":"component---src-templates-index-page-index-tsx","path":"/","result":{"pageContext":{"allGroupSlugs":["/2020/Q4","/2021/Q2","/2021/Q4"]}},"staticQueryHashes":[]}
+{
+    "componentChunkName": "component---src-templates-index-page-index-tsx",
+    "path": "/",
+    "result": {"pageContext":{"allGroupSlugs":["/2020/Q4","/2021/Q2","/2021/Q4"]}},
+    "staticQueryHashes": []}
