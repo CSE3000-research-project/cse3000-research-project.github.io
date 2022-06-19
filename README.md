@@ -8,7 +8,7 @@ The poster [website](https://CSE3000-research-project.github.io) for the TU Delf
 
 ## Workflow for students
 
-We ask each project group to choose a representative who will update the page with the final posters, papers, and (optionally) links to the GitHub repositories of the whole group. Here we explain the steps required to make a complete pull request to this repository.
+We ask each project group to choose a representative who will update the page with the final posters, papers, and (optionally) links to the GitHub or Docker repositories of the whole group. Here we explain the steps required to make a complete pull request to this repository.
 
 ### 1. Forking our repository
 <details>
@@ -173,11 +173,11 @@ See here for the description of all arguments of create_a_new_student.js.
 | `quarter`       | `int`    | **Required**. Quarter when the project was conducted. |
 | `groupNumber`   | `string` | **Required**. Your group number on BrightSpace. |
 | `firstName`     | `string` | **Required**. The first name of the student. |
-| `lastName`      | `string` | **Required**. The last name of the student |
-| `paperUrl`      | `string` | A link to the TU Delft repository version of your paper |
+| `lastName`      | `string` | **Required**. The last name of the student. |
+| `paperUrl`      | `string` | A link to the TU Delft repository version of your paper. |
 | `posterPdf`     | `string` | An *absolute* path to the location of the pdf version of your poster. If the flag is left empty, you have to add the pdf manually. **Important:** the website cannot be built if this image is not present in your folder. |
 | `posterImg`     | `string` | An *absolute* path to the location of the JPG version of your poster. This image will be used as a preview of your poster. If the flag is left empty, you have to add the image manually. **Important:** the website cannot be built if this image is not present in your folder. |
-| `repositoryUrl` | `string` | A link to the GitHub repository with project code |
+| `repositoryUrl` | `string` | A link to the GitHub/Docker repository with project code. |
 </details>
 
 <br>
@@ -213,6 +213,8 @@ and then:
 ```
 
 and finally navigate to `localhost:9000`.
+
+**Note:** If the website builds successfully but you do not see anything in the browser, try to restart your terminal. Running the `gatsby clean` command can also help.
 </details>
 
 <br>
@@ -233,7 +235,7 @@ git pull upstream dev
 ```bash
 git add modified_files
 git commit -m "Add Group N files."
-git push -u origin my_feature
+git push -u origin group_N
 ```
 
 **Note:** Please make sure that your commit message follows the format `Add Group N files` or `Update Group N files` where `N` is the number of your group on Brightspace.  
