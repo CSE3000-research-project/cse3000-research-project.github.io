@@ -88,7 +88,7 @@ Each group directory has a subdirectory called `students` where each student mus
 
 * `student_info.yaml` file with student-related information: *first name*, *last name*, *thesis title*, *link to the paper*, and optionally *link to the code*.
 * `poster.jpg` which is a preview image of the poster
-* `poster.pdf` academic poster itself.
+* `poster.pdf` which is the academic poster itself.
 
 <details>
 <summary>
