@@ -30,6 +30,7 @@ const getGroupsBySlug = async graphql => {
 
 const forceLinuxStylePath = (somethingByRelativeDirectory) => {
   Object.keys(somethingByRelativeDirectory).forEach(key => {
+    if (!key.includes("\\")) return;
     let newkey = key.replace(/\\/g, "/");
     somethingByRelativeDirectory[newkey] = somethingByRelativeDirectory[key];
     delete somethingByRelativeDirectory[key];
