@@ -140,18 +140,24 @@ const load_student_data = (
     }
   })
 
-
-  const paper_domain = /(^$|(https?:\/\/(.+?\.)?tudelft\.nl\/([A-Za-z0-9\/\-:%\?=]*)))/g
-  if ("paperUrl" in student_data && !student_data["paperUrl"].match(paper_domain)) {
-
+  const paper_domain =
+    /(^$|(https?:\/\/(.+?\.)?tudelft\.nl\/([A-Za-z0-9\/\-:%\?=]*)))/g
+  if (
+    "paperUrl" in student_data &&
+    !student_data["paperUrl"].match(paper_domain)
+  ) {
     throw new Error(
       `The poster at ${pathToStudentFolder} links to an invalid domain:"\n${student_data["paperUrl"]}\n"`,
     )
   }
 
-  const repo_domain = /(^$|(https:\/\/(gitlab(\.ewi)*\.tudelft\.nl|(github|hub\.docker)\.com(\/r)*)(\/[A-Za-z0-9\.\-_]*)*))/g
+  const repo_domain =
+    /(^$|(https:\/\/(gitlab(\.ewi)*\.tudelft\.nl|(github|hub\.docker)\.com(\/r)*)(\/[A-Za-z0-9\.\-_]*)*))/g
 
-  if ("repositoryUrl" in student_data && !student_data["repositoryUrl"].match(repo_domain)) {
+  if (
+    "repositoryUrl" in student_data &&
+    !student_data["repositoryUrl"].match(repo_domain)
+  ) {
     throw new Error(
       `The repository at ${pathToStudentFolder} links to an invalid domain:"\n${student_data["repositoryUrl"]}\n"`,
     )
