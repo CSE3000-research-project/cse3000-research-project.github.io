@@ -11,6 +11,7 @@ The poster [website](https://CSE3000-research-project.github.io) for the TU Delf
 We ask each project group to choose a representative who will update the page with the final posters, papers, and (optionally) links to the GitHub or Docker repositories of the whole group. Here we explain the steps required to make a complete pull request to this repository.
 
 ### 1. Forking our repository
+
 <details>
 <summary>
 Before you can make a PR you must fork the repo.
@@ -24,11 +25,13 @@ Before you can make a PR you must fork the repo.
 git clone git@github.com:YourLogin/cse3000-research-project.github.io.git
 cd cse3000-research-project.github.io
 ```
+
 </details>
 
 <br>
 
 ### 2. Setting up the project
+
 <details>
 <summary>
 Add an upstream remote and make a feature branch.
@@ -58,12 +61,13 @@ git checkout -b group_N
 <br>
 
 ### 3. Installing the dependencies
+
 <details>
 <summary>
 This project works with Node v14.19 (LTS: Fermium).
 </summary>
 
-You can download Node.js from [the Node website](https://nodejs.org/en/download/). 
+You can download Node.js from [the Node website](https://nodejs.org/en/download/).
 
 Consider using a version manager to easily change between the Node versions. As one option, you can install `nvm` which also works on Windows [if you are using WLS](https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-wsl).
 
@@ -82,13 +86,13 @@ npm install
 #### Poster storage structure
 
 All project groups are stored based on the year and quarter of their CSE3000 Research Project edition. Within this directory, each project group has its own folder with the name `Group N`.
-Each group folder must have a `group_info.yaml` file that contains all the group-related information: *group number*, *project title*, and *names of the supervisors*.  
+Each group folder must have a `group_info.yaml` file that contains all the group-related information: _group number_, _project title_, and _names of the supervisors_.
 
 Each group directory has a subdirectory called `students` where each student must have their own folder with three files:
 
-* `student_info.yaml` file with student-related information: *first name*, *last name*, *thesis title*, *link to the paper*, and optionally *link to the code*.
-* `poster.jpg` which is a preview image of the poster
-* `poster.pdf` which is the academic poster itself.
+- `student_info.yaml` file with student-related information: _first name_, _last name_, _thesis title_, _link to the paper_, and optionally _link to the code_.
+- `poster.jpg` which is a preview image of the poster
+- `poster.pdf` which is the academic poster itself.
 
 <details>
 <summary>
@@ -108,6 +112,7 @@ content
         │   │       │       poster.pdf
         │   │       │       student_info.yaml
 ```
+
 </details>
 
 <br>
@@ -131,12 +136,13 @@ See here for the description of all arguments of create_a_new_group.js.
 </summary>
 
 | Parameter     | Type           | Description |
-| :------------ | :------------- | :-----------|
+| :------------ | :------------- | :---------- |
 | `title`       | `string`       | **Required**. The title of the project. |
 | `year`        | `int`          | Year when the project was conducted. By default the current year. |
 | `quarter`     | `int`          | **Required**. Quarter when the project was conducted. |
 | `groupNumber` | `string`       | **Required**. Your group number on BrightSpace. |
 | `supervisors` | `List[string]` | A list of supervisor names. |
+
 </details>
 
 <br>
@@ -167,7 +173,7 @@ See here for the description of all arguments of create_a_new_student.js.
 </summary>
 
 | Parameter       | Type     | Description |
-| :---------------| :------- | :-----------|
+| :-------------- | :------- | :---------- |
 | `title`         | `string` | **Required**. The title of the project. |
 | `year`          | `int`    | Year when the project was conducted. By default the current year. |
 | `quarter`       | `int`    | **Required**. Quarter when the project was conducted. |
@@ -175,14 +181,16 @@ See here for the description of all arguments of create_a_new_student.js.
 | `firstName`     | `string` | **Required**. The first name of the student. |
 | `lastName`      | `string` | **Required**. The last name of the student. |
 | `paperUrl`      | `string` | A link to the TU Delft repository version of your paper. |
-| `posterPdf`     | `string` | An *absolute* path to the location of the pdf version of your poster. If the flag is left empty, you have to add the pdf manually. **Important:** the website cannot be built if this image is not present in your folder. |
-| `posterImg`     | `string` | An *absolute* path to the location of the JPG version of your poster. This image will be used as a preview of your poster. If the flag is left empty, you have to add the image manually. **Important:** the website cannot be built if this image is not present in your folder. |
+| `posterPdf`     | `string` | An _absolute_ path to the location of the pdf version of your poster. If the flag is left empty, you have to add the pdf manually. **Important:** the website cannot be built if this image is not present in your folder. |
+| `posterImg`     | `string` | An _absolute_ path to the location of the JPG version of your poster. This image will be used as a preview of your poster. If the flag is left empty, you have to add the image manually. **Important:** the website cannot be built if this image is not present in your folder. |
 | `repositoryUrl` | `string` | A link to the GitHub/Docker repository with project code. |
+
 </details>
 
 <br>
 
 ### 5. Running the website locally
+
 <details>
 <summary>
 Before you make a pull request, please check if the website works on your local machine.
@@ -215,6 +223,7 @@ and then:
 and finally navigate to `localhost:9000`.
 
 **Note:** If the website builds successfully but you do not see anything in the browser, try to restart your terminal. Running the `gatsby clean` command can also help.
+
 </details>
 
 <br>
