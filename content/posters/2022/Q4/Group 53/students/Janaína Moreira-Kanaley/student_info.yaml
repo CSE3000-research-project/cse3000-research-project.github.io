@@ -1,5 +1,9 @@
 thesisTitle: 'Smart Team Play: Utility of Population-Based Training for Cooperative AI in Overcooked'
+<<<<<<< HEAD
 paperUrl: 'http://resolver.tudelft.nl/uuid:396f42bd-b50e-47c5-8f41-2b2e6f9b7ab0'
+=======
+paperUrl: ''
+>>>>>>> upstream/dev
 firstName: Janaína
 lastName: Moreira-Kanaley
 repositoryUrl: 'https://hub.docker.com/r/jmoreirakanaley/pbt'

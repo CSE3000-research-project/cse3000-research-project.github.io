@@ -1,5 +1,9 @@
 thesisTitle: Fictitious Co-Play for human-agent collaboration
+<<<<<<< HEAD
 paperUrl: 'http://resolver.tudelft.nl/uuid:ca39cc40-049a-42ce-ba6f-003e5c358351'
+=======
+paperUrl: ''
+>>>>>>> upstream/dev
 firstName: Nathan
 lastName: Ordonez Cardenas
 repositoryUrl: 'https://hub.docker.com/r/nataxcan/fcp'
