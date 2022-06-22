@@ -15,7 +15,7 @@ const main = () => {
     paperUrl,
     posterPdf,
     posterImg,
-    repositoryUrl
+    repositoryUrl,
   } = createCLIArgs()
 
   const posterFolder = path.join(__dirname, "content", "posters", `${year}`)
@@ -43,10 +43,16 @@ const main = () => {
     fs.mkdirSync(root)
   }
 
-  const data = { thesisTitle: title, paperUrl, firstName, lastName, repositoryUrl }
+  const data = {
+    thesisTitle: title,
+    paperUrl,
+    firstName,
+    lastName,
+    repositoryUrl,
+  }
   fs.writeFileSync(
     path.join(root, `student_info.yaml`),
-    yaml.dump(data, { lineWidth: -1 })
+    yaml.dump(data, { lineWidth: -1 }),
   )
 
   if (posterPdf) {
