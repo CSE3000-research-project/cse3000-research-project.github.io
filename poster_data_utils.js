@@ -140,7 +140,6 @@ const load_student_data = (
     }
   })
 
-
   const paper_domain = /(^$|(https?:\/\/(.+?\.)?tudelft\.nl\/([A-Za-z0-9\/\-:%\?=]*)))/g
 
   if (!student_data["paperUrl"].match(paper_domain)) {
