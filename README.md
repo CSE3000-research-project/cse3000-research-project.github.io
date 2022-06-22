@@ -77,6 +77,8 @@ After setting up the correct version of Node, install the dependencies:
 npm install
 ```
 
+**Note:** We currently recommend that you work with the repository through a Unix shell!
+
 </details>
 
 <br>
