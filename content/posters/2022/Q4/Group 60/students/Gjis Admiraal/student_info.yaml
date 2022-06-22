@@ -1,5 +1,9 @@
 thesisTitle: Online Caching through Optimistic Online Mirror Descent
+<<<<<<< HEAD
 paperUrl: 'https://repository.tudelft.nl/islandora/object/uuid:a8c24164-67aa-4df3-bdf5-777450d8fd6d?collection=education'
+=======
+paperUrl: ''
+>>>>>>> origin/master
 firstName: Gjis
 lastName: Admiraal
 repositoryUrl: 'https://github.com/gadmiraal/optimistic-online-caching'
