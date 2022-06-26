@@ -1,0 +1,5 @@
+thesisTitle: Improving a Reinforcement Learning Negotiating Agent’s Performance by Extracting Information from the Opponent’s Sequence of Offers
+paperUrl: http://resolver.tudelft.nl/uuid:924499b9-0edd-448b-a89b-989e36a6657e
+firstName: Arpit
+lastName: Agrawal
+repositoryUrl: https://github.com/brenting/negotiation_PPO/tree/sequence-of-offers-single-thread
