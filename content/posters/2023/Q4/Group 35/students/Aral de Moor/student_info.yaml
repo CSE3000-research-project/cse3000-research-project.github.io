@@ -1,0 +1,5 @@
+thesisTitle: 'CodeGPT on XTC: Compressing a CodeGPT Model Using Hybrid Layer Reduction and Extreme Quantisation through Knowledge Distillation'
+paperUrl: 'http://resolver.tudelft.nl/uuid:f37924fc-ecac-4bd4-b923-7d4c73f74a72'
+firstName: Aral
+lastName: de Moor
+repositoryUrl: 'https://github.com/AISE-TUDelft/LLM4CodeCompression/tree/main/XTC'
