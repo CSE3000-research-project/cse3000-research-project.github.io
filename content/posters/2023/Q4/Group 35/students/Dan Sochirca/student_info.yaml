@@ -1,0 +1,5 @@
+thesisTitle: 'Compressing code generation language models on CPUs: Using Group Lasso pruning and post-training quantization'
+paperUrl: 'http://resolver.tudelft.nl/uuid:47817baa-9c64-4cca-b206-09544ac5a75b'
+firstName: Dan
+lastName: Sochirca
+repositoryUrl: 'https://github.com/AISE-TUDelft/LLM4CodeCompression/tree/main/CodeGPT-on-Intel'
