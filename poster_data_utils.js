@@ -162,13 +162,22 @@ const load_student_data = (
     )
   }
 
-  student_data["prevImage"] =
-    allPosterPrevImagesByRelativeDirectory[path.dirname(pathToStudentFolder)]
-  // student_data["pdfUrl"] =
-  //   allPosterPdfsByRelativeDirectory[path.dirname(pathToStudentFolder)][
-  //     "publicURL"
-  //   ]
-  // this code breaks the website, so I'm commenting it out
+  //if windows then replace / with \
+  if (process.platform === "win32") {
+    pathToStudentFolder = pathToStudentFolder.replace(/\//g, "\\")
+    const newpath = pathToStudentFolder.replace(/\//g, "\\"); // Windows path
+    student_data["prevImage"] =
+      allPosterPrevImagesByRelativeDirectory[path.dirname(newpath)]
+    student_data["pdfUrl"] =
+      allPosterPdfsByRelativeDirectory[path.dirname(newpath)][
+        "publicURL"
+      ]
+  } else {
+    student_data["prevImage"] = allPosterPrevImagesByRelativeDirectory[path.dirname(pathToStudentFolder)]
+    student_data["pdfUrl"] = allPosterPdfsByRelativeDirectory[path.dirname(pathToStudentFolder)][
+      "publicURL"
+    ]
+  }
 
   return student_data
 }
