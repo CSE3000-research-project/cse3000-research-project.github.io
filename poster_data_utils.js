@@ -164,10 +164,11 @@ const load_student_data = (
 
   student_data["prevImage"] =
     allPosterPrevImagesByRelativeDirectory[path.dirname(pathToStudentFolder)]
-  student_data["pdfUrl"] =
-    allPosterPdfsByRelativeDirectory[path.dirname(pathToStudentFolder)][
-      "publicURL"
-    ]
+  // student_data["pdfUrl"] =
+  //   allPosterPdfsByRelativeDirectory[path.dirname(pathToStudentFolder)][
+  //     "publicURL"
+  //   ]
+  // this code breaks the website, so I'm commenting it out
 
   return student_data
 }
