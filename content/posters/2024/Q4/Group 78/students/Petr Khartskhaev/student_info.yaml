@@ -1,5 +1,5 @@
-thesisTitle: 'System Call Sandboxing: Comparing static and dynamic analysis and filter generation'
-paperUrl: ''
+thesisTitle: 'Comparing static and dynamic analysis and filter generation'
+paperUrl: 'http://resolver.tudelft.nl/uuid:8364821f-95a5-46cc-9d66-020c99300ffb'
 firstName: Petr
 lastName: Khartskhaev
 repositoryUrl: 'https://github.com/felacek/dynamic-syscall-filtering'
