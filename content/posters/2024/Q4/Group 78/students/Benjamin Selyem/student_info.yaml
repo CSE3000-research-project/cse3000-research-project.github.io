@@ -1,5 +1,5 @@
 thesisTitle: 'Exploring automated system call sandbox policy generation: Investigating and comparing static and dynamic analysis approaches to generate system call policies'
-paperUrl: ''
+paperUrl: 'http://resolver.tudelft.nl/uuid:a49f306c-358d-4f47-83e4-9aea04b87e17'
 firstName: Benjamin
 lastName: Selyem
 repositoryUrl: 'https://github.com/sbencoding/syscall-sandboxing-research'
