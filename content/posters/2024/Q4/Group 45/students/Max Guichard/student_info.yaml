@@ -1,4 +1,4 @@
-thesisTitle: 'Backpropagating in time-discretized multi-spike spiking neural networks : How are the training accuracy and training speed (in epochs and time) of a spiking neural network affected when numerically integrating with the forward-Euler and Parker-Sochacki methods?'
+thesisTitle: 'How are the training accuracy and training speed (in epochs and time) of a spiking neural network affected...'
 paperUrl: 'http://resolver.tudelft.nl/uuid:2dfe6620-bcbe-44b3-a50d-d9c4a26c5acb'
 firstName: Max
 lastName: Guichard
