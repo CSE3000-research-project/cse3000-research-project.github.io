@@ -1,0 +1,5 @@
+firstName: "Vincent"
+lastName: "van Vliet"
+thesisTitle: "Integrating Base Performance and Performance Differences in Automatic Speech Recognition Metrics"
+paperUrl: "http://resolver.tudelft.nl/uuid:8965a8c5-658e-4948-9814-5fd05a1ecf40"
+repositoryUrl: "https://github.com/vincentvvliet/weighted-bias-asr"

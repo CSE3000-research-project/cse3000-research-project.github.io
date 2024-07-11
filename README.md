@@ -1,7 +1,5 @@
 # CSE3000-research-project.github.io
 
-<img src="https://app.travis-ci.com/CSE3000-research-project/cse3000-research-project.github.io.svg?branch=master&amp;status=passed" alt="build:passed"  style="float:right;">
-
 The poster [website](https://CSE3000-research-project.github.io) for the TU Delft course CSE3000 Research Project.
 
 <br>
@@ -259,9 +257,9 @@ git push -u origin group_N
 ## Deployment
 
 The website is deployed on [CSE3000-research-project.github.io](https://CSE3000-research-project.github.io) using GitHub Pages.
-This website should be updated automatically every time the main branch is updated using the Travis-ci build script. Nonetheless, it is also possible (and suggested) to deploy the page locally via command line.
+This website should be updated automatically every time the main branch is updated using the Travis-ci build script. 
 
-To do this, first set the `GH_TOKEN` repository secret for the `deploy:ci` command in `package.json` taken from the `CSE3000-research-project` GitHub account, and then run the command.
+You can also deploy the page locally via command line. To do this, first change `$GH_TOKEN` in the `deploy:ci` command in `package.json` to the correct repository secret taken from the `CSE3000-research-project` GitHub account, and then execute `npm run deploy:ci` command. Make sure that the token is not committed to the repository!
 
 For more information, see the `.travis.yml` file or this [link](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/how-gatsby-works-with-github-pages/).
 
