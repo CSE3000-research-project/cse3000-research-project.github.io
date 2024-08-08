@@ -8,9 +8,9 @@ env:
   GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
 jobs:
-  build:
+  compress:
     runs-on: ubuntu-latest
-    steps:
+    steps: 
       - name: GitHub Config
         run: |
           git config --global user.email "rp-cs-ewi@tudelft.nl"
@@ -20,5 +20,9 @@ jobs:
       - name: Install dependencies
         run: |
           npm install
+      - name: Compress
+        run: |
+          pip3 install pillow
+          npm run compress
       - name: Deploy
         run: npm run deploy:ci
