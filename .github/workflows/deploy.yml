@@ -20,9 +20,9 @@ jobs:
       - name: Install dependencies
         run: |
           npm install
-      - name: Compress
-        run: |
-          pip3 install pillow
-          npm run compress
+      # - name: Compress
+      #   run: |
+      #     pip3 install pillow
+      #     npm run compress
       - name: Deploy
         run: npm run deploy:ci
