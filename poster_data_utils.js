@@ -11,6 +11,10 @@ const getGroupsBySlug = async graphql => {
   const allPosterPdfsByRelativeDirectory = indexByRelativeDirectory(
     await query_poster_pdfs(graphql),
   )
+
+  forceLinuxStylePath(allPosterPdfsByRelativeDirectory)
+  forceLinuxStylePath(allPosterPrevImagesByRelativeDirectory)
+
   const groups = glob
     .sync("content/posters/**/group_info.yaml")
     .map(pathToGroupInfo =>
@@ -22,6 +26,15 @@ const getGroupsBySlug = async graphql => {
     )
 
   return groupBy(groups, group => `/${group["year"]}/Q${group["quarter"]}`)
+}
+
+const forceLinuxStylePath = (somethingByRelativeDirectory) => {
+  Object.keys(somethingByRelativeDirectory).forEach(key => {
+    if (!key.includes("\\")) return;
+    let newkey = key.replace(/\\/g, "/");
+    somethingByRelativeDirectory[newkey] = somethingByRelativeDirectory[key];
+    delete somethingByRelativeDirectory[key];
+  });
 }
 
 const query_poster_prev_images = async graphql => {
