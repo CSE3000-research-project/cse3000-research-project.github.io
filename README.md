@@ -257,7 +257,7 @@ git push -u origin group_N
 ## Deployment
 
 The website is deployed on [CSE3000-research-project.github.io](https://CSE3000-research-project.github.io) using GitHub Pages.
-This website should be updated automatically every time the main branch is updated using the Travis-ci build script.
+This website should be updated automatically every time the main branch is updated using the Travis-ci build script. 
 
 You can also deploy the page locally via command line. To do this, first change `$GH_TOKEN` in the `deploy:ci` command in `package.json` to the correct repository secret taken from the `CSE3000-research-project` GitHub account, and then execute `npm run deploy:ci` command. Authentication during deployment is also done using the token.
 
