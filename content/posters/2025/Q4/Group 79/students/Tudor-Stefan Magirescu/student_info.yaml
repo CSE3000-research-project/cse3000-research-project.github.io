@@ -1,0 +1,5 @@
+thesisTitle: 'Debugging Hylo: Providing Debugging Support to a Modern, Natively-Compiled Programming Language'
+paperUrl: 'https://resolver.tudelft.nl/uuid:6211f244-1c7b-47ca-bf0f-7e6b6123f125'
+firstName: Tudor-Stefan
+lastName: Magirescu
+repositoryUrl: 'https://gitlab.tudelft.nl/jsreinders/pl-tooling-for-hylo/-/tree/debugging-hylo/debuggers?ref_type=heads'
