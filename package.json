@@ -7,7 +7,6 @@
   "keywords": [],
   "license": "MIT",
   "scripts": {
-    "compress": "python compress.py",
     "build": "gatsby build",
     "develop": "gatsby clean && gatsby develop",
     "start": "npm run develop",
