@@ -164,6 +164,7 @@ const load_student_data = (
 
   //if windows then replace / with \
   if (process.platform === "win32") {
+    console.log(pathToStudentFolder)
     pathToStudentFolder = pathToStudentFolder.replace(/\//g, "\\")
     const newpath = pathToStudentFolder.replace(/\//g, "\\"); // Windows path
     student_data["prevImage"] =
