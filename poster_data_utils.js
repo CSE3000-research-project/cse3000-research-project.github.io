@@ -152,7 +152,7 @@ const load_student_data = (
   }
 
   const repo_domain =
-    /(^$|(https:\/\/(gitlab((\.ewi)?(\.tudelft\.nl)|\.com)|(github|hub\.docker)\.com(\/r)?)(\/[A-Za-z0-9\.\-_]*)+))/g
+    /(^$|(https:\/\/(codeberg\.org|zenodo\.org|gitlab((\.ewi)?(\.tudelft\.nl)|\.com)|(github|hub\.docker)\.com(\/r)?)(\/[A-Za-z0-9\.\-_]*)+))/g
   if (
     "repositoryUrl" in student_data &&
     !student_data["repositoryUrl"].match(repo_domain)
