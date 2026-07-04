@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-poster-overview-index-tsx",
+    "path": "/2019/Q4",
+    "result": {"pageContext":{"allGroupSlugs":["/2019/Q4","/2020/Q4","/2021/Q2","/2021/Q4","/2022/Q4","/2023/Q2","/2023/Q4","/2024/Q2","/2024/Q4","/2025/Q2","/2025/Q4","/2026/Q2","/2026/Q4"],"groups":[{"projectTitle":"Example title","year":2019,"supervisors":["Joe Doe","Jane Doe"],"quarter":4,"students":[]}]}},
+    "staticQueryHashes": []}
