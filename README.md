@@ -28,7 +28,7 @@ One-time setup:
 - The workflow and form must be on the default branch (`master`) to take effect, and pull requests go to the `dev` branch, which must exist. Check this in a copy of the repository too: GitHub's importer can pick another default branch.
 - Create the labels `poster-submission` and `needs-changes` before students use the form.
 - In **Settings → Actions → General**, set workflow permissions to allow GitHub Actions to create pull requests.
-- Optionally, in **Settings → General**, turn on **Automatically delete head branches**, so the `poster-submission/issue-N` branches are removed after merging.
+- Leave **Automatically delete head branches** (Settings → General) off: with it on, merging `dev` into `master` deletes `dev`. Delete merged `poster-submission/issue-N` branches from the **Branches** page instead.
 
 ## Manual route
 
