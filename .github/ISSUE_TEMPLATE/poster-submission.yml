@@ -1,0 +1,162 @@
+# The labels below are the keys build_submission.py parses the issue by:
+# renaming a label breaks parsing of that field.
+name: Poster submission
+description: Add your poster, paper and code to the CSE3000 website. Every student submits their own form.
+title: "Poster: <first name> <last name>, Group <N>"
+labels: ["poster-submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Fill in this form once per student, and replace the placeholders in the title above. After you submit it, a bot checks your answers, makes a preview image of your poster, and opens a pull request for the course staff to review. If something is wrong, the bot says so in a comment. Edit this issue to fix it and the bot runs again; see [SUBMITTING.md](https://github.com/CSE3000-research-project/cse3000-research-project.github.io/blob/master/SUBMITTING.md) for how.
+
+        This issue and your poster are public as soon as you submit. You do not need git, Node or a fork.
+
+  - type: markdown
+    attributes:
+      value: "## Your project group"
+
+  - type: input
+    id: year
+    attributes:
+      label: Year
+      description: The calendar year in which you finished the project.
+      placeholder: "2027"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: quarter
+    attributes:
+      label: Quarter
+      description: Q2 if your project ended in January or February, Q4 if it ended in June or July.
+      options:
+        - Q2
+        - Q4
+    validations:
+      required: true
+
+  - type: input
+    id: group_number
+    attributes:
+      label: Group number
+      description: Your group number on Brightspace, digits only.
+      placeholder: "42"
+    validations:
+      required: true
+
+  - type: input
+    id: project_title
+    attributes:
+      label: Project title
+      description: The title of the group project as listed on Brightspace, the same for everyone in your group.
+    validations:
+      required: true
+
+  - type: textarea
+    id: supervisors
+    attributes:
+      label: Supervisors
+      description: Responsible professor and supervisors, one name per line.
+      placeholder: |
+        Jane Doe
+        John Doe
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: "## You and your paper"
+
+  - type: input
+    id: first_name
+    attributes:
+      label: First name
+    validations:
+      required: true
+
+  - type: input
+    id: last_name
+    attributes:
+      label: Last name
+      description: Including any prefix, for example "van der Berg".
+    validations:
+      required: true
+
+  - type: input
+    id: paper_title
+    attributes:
+      label: Paper title
+    validations:
+      required: true
+
+  - type: input
+    id: paper_url
+    attributes:
+      label: Link to your paper in the TU Delft Education repository
+      description: A `tudelft.nl` link, for example `https://resolver.tudelft.nl/uuid:...`. Leave empty if your paper is not online yet, and edit this issue once it is.
+      placeholder: "https://resolver.tudelft.nl/uuid:..."
+
+  - type: input
+    id: repository_url
+    attributes:
+      label: Link to your code (optional)
+      description: An `https` link to 4TU.ResearchData, Zenodo, GitHub, GitLab (TU Delft or gitlab.com), Codeberg or Docker Hub.
+      placeholder: "https://doi.org/10.4121/..."
+
+  - type: dropdown
+    id: code_licence
+    attributes:
+      label: Licence of your code
+      description: |
+        Look at the licences of the libraries you use most. If one is GPL, LGPL, AGPL or EUPL, you should generally use the same licence. If in doubt, choose MIT. Do not use a Creative Commons licence for code. See SUBMITTING.md and https://choosealicense.com for help.
+      options:
+        - No code published
+        - MIT
+        - Apache-2.0
+        - BSD-3-Clause
+        - GPL-2.0
+        - GPL-3.0
+        - LGPL-3.0
+        - AGPL-3.0
+        - EUPL-1.2
+        - Other (name it in the repository)
+      default: 0
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: "## Your poster"
+
+  - type: textarea
+    id: poster_pdf
+    attributes:
+      label: Poster PDF
+      description: Drag your poster PDF into this box (one page, at most 25 MB; the website shows only the first page). Wait until the upload finishes and a link like `[poster.pdf](https://github.com/user-attachments/...)` appears. You do not need to make a JPG; the bot does that.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: poster_licence
+    attributes:
+      label: Licence of your poster
+      description: CC BY 4.0 is the recommended default. If your poster combines material under other Creative Commons licences, choose the most restrictive of them. If none of these four fits, ask the course staff.
+      options:
+        - CC BY 4.0
+        - CC BY-SA 4.0
+        - CC BY-NC 4.0
+        - CC BY-NC-SA 4.0
+      default: 0
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Permission to publish
+      options:
+        - label: I agree that my name, poster, paper link and code link are published in this issue and on https://cse3000-research-project.github.io, and kept there after the course ends.
+          required: true
+        - label: The poster is my own work, or I have the right to publish all material in it under the licence chosen above.
+          required: true

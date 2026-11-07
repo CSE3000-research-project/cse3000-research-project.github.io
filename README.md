@@ -6,7 +6,33 @@ The poster [website](https://CSE3000-research-project.github.io) for the TU Delf
 
 ## Workflow for students
 
-We ask each project group to choose a representative who will update the page with the final posters, papers, and (optionally) links to the GitHub or Docker repositories of the whole group. Here we explain the steps required to make a complete pull request to this repository.
+**Students: see [SUBMITTING.md](SUBMITTING.md).** Each student fills in the [poster submission form](https://github.com/CSE3000-research-project/cse3000-research-project.github.io/issues/new?template=poster-submission.yml); no git or Node is needed.
+
+## How submissions are processed (staff)
+
+The workflow `.github/workflows/poster-submission.yml` runs whenever an open issue with the label `poster-submission` is opened, edited or reopened. Edits to closed issues are ignored, so leave an issue open if the student may still add their paper link; an edit after the pull request was merged opens a new one.
+
+1. The `build` job (read-only) runs `scripts/submission/build_submission.py`: it parses the form, checks the answers with the same rules as `poster_data_utils.js`, downloads the PDF, and renders a 1600-pixel `poster.jpg` with poppler.
+2. The `publish` job runs `scripts/submission/publish_submission.py`: it commits the student's folder to the branch `poster-submission/issue-N`, opens a pull request to `dev` titled `Add Group N files (Name)`, and keeps one bot comment on the issue up to date. Failed checks get the label `needs-changes`.
+
+Staff review and merge these pull requests as before. To fix a merge conflict, edit the student's issue (or ask them to): the bot rebuilds the pull request from the current `dev`. Close the issue once the student's paper link is in and the pull request is merged. The group's `group_info.yaml` is written only when it does not exist on `dev` yet. Two group members who submit before either pull request is merged both add it; if their project titles or supervisors differ, the second pull request has a merge conflict in that file. Editing the second issue after the first pull request is merged resolves it, and the bot then notes that the existing group details were kept.
+
+Each course year, add the students' 4TU.ResearchData datasets to a 4TU collection for that year. They are the `repositoryUrl` values that start with `https://doi.org/10.4121/` or `https://data.4tu.nl/`:
+
+```bash
+grep -rhE "repositoryUrl: '?https://(doi.org/10.4121|data.4tu.nl)/" content/posters/2027
+```
+
+One-time setup:
+
+- The workflow and form must be on the default branch (`master`) to take effect, and pull requests go to the `dev` branch, which must exist. Check this in a copy of the repository too: GitHub's importer can pick another default branch.
+- Create the labels `poster-submission` and `needs-changes` before students use the form.
+- In **Settings → Actions → General**, set workflow permissions to allow GitHub Actions to create pull requests.
+- Leave **Automatically delete head branches** (Settings → General) off: with it on, merging `dev` into `master` deletes `dev`. Delete merged `poster-submission/issue-N` branches from the **Branches** page instead.
+
+## Manual route
+
+The steps below still work, for staff or for cases the form does not cover. The form is the recommended route for students.
 
 ### 1. Forking our repository
 
