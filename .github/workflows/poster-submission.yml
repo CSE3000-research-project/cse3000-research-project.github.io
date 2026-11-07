@@ -1,0 +1,75 @@
+name: Poster submission
+
+# Turns an issue made from the "Poster submission" form into a pull request to dev.
+# Two jobs: "build" handles the untrusted upload without write access, and
+# "publish" commits the result and comments on the issue.
+
+on:
+  issues:
+    types: [opened, edited, reopened]
+
+concurrency:
+  group: poster-submission-${{ github.event.issue.number }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    if: github.event.issue.state == 'open' && contains(github.event.issue.labels.*.name, 'poster-submission')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout scripts only
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            .github
+            scripts
+          filter: blob:none
+          persist-credentials: false
+      - name: Install tools
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
+          pip3 install --quiet pyyaml
+      - name: Validate and build
+        run: python3 scripts/submission/build_submission.py --out out
+      - uses: actions/upload-artifact@v4
+        with:
+          name: submission
+          path: out
+          retention-days: 7
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - name: Checkout scripts (default branch)
+        uses: actions/checkout@v4
+        with:
+          path: bot
+          sparse-checkout: scripts
+          filter: blob:none
+          persist-credentials: false
+      - name: Checkout dev without the poster files
+        uses: actions/checkout@v4
+        with:
+          ref: dev
+          path: site
+          sparse-checkout: .github
+          filter: blob:none
+      - uses: actions/download-artifact@v4
+        with:
+          name: submission
+          path: out
+      - name: Commit, open PR, comment
+        run: |
+          git -C site config user.name "github-actions[bot]"
+          git -C site config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          python3 bot/scripts/submission/publish_submission.py --report out/report.json --files out/files --site site
