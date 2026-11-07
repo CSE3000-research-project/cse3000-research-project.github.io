@@ -5,11 +5,14 @@ on:
     branches: master
 
 env:
-  GH_TOKEN: ${{ secrets.GH_TOKEN }}
+  # The workflow's own token: it does not expire like a personal access token.
+  GH_TOKEN: x-access-token:${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   compress:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps: 
       - name: GitHub Config
         run: |
